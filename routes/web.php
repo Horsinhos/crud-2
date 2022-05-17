@@ -20,19 +20,20 @@ Route::post('/cadastrar-produto',function(Request $request){
     echo "Produto criado com sucesso!";
 });
 
-Route::get('\listar-produto(id)', function($id){
+Route::get('/listar-produto/{id}', function($id){
     $produto = Produto::find($id);
     return view('listar', ['produto' =>$produto]);
 
 });
 
-Route::get('\editar-produto/{id}', function($id){
+Route::get('/editar-produto/{id}', function($id){
     $produto = Produto::find($id);
     return view('editar', ['produto'=>$produto]);
 });
 
-Route::get('\editar-produto/{id}', function($id){
+Route::post('/editar-produto/{id}', function(Request $request, $id){
     $produto = Produto::find($id);
+
     $produto->update([
         'nome' => $request->nome,
         'valor' => $request->valor,
@@ -42,7 +43,7 @@ Route::get('\editar-produto/{id}', function($id){
     echo "Produto editado com sucesso!";
 });
 
-Route::get('\excluir-produto/{id}', function($id){
+Route::get('/excluir-produto/{id}', function($id){
     $produto = Produto::find($id);
     $produto->delete();
 });
