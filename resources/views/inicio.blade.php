@@ -19,7 +19,7 @@
         <label for="lblQuantidade">Quantidade:</label>
         <input type="text" name="estoque">
         <br><br>
-        <button>cadastrar</button>
+        <button>Cadastrar</button>
     </form>
 </body>
 </html>
